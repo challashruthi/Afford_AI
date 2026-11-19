@@ -1,0 +1,9 @@
+node_modules/
+target/
+.env
+.vscode/
+*.log
+.git/
+*.log
+*_log.txt
+b_log.txt

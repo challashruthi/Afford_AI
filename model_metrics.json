@@ -1,0 +1,116 @@
+{
+    "model_type": "RandomForestRegressor",
+    "data_mode": "SIMULATED",
+    "dataset_provenance": "Simulated multi-provider ride dataset (Uber, Ola, Rapido, Pink Bike) calibrated with realistic Indian base rates, deterministic peak surge windows, and market variance.",
+    "dataset_samples": 10000,
+    "test_samples": 2000,
+    "train_test_split": "80/20",
+    "features": [
+        "distance_km",
+        "duration_mins",
+        "provider",
+        "ride_type",
+        "hour_of_day",
+        "day_of_week",
+        "is_peak_time",
+        "surge_multiplier"
+    ],
+    "target": "fare",
+    "cv_r2_mean": 0.9932,
+    "models_compared": {
+        "baseline_formula": {
+            "mae": 3.08,
+            "rmse": 3.82,
+            "r2": 0.9998
+        },
+        "linear_regression": {
+            "mae": 48.64,
+            "rmse": 70.98,
+            "r2": 0.9165
+        },
+        "random_forest": {
+            "mae": 10.98,
+            "rmse": 18.84,
+            "r2": 0.9941
+        }
+    },
+    "ml_metrics": {
+        "mae": 10.98,
+        "rmse": 18.84,
+        "r2": 0.9941
+    },
+    "provider_metrics": {
+        "Ola": {
+            "ml_mae": 10.92,
+            "baseline_mae": 3.11,
+            "samples": 469
+        },
+        "Rapido": {
+            "ml_mae": 11.94,
+            "baseline_mae": 3.07,
+            "samples": 494
+        },
+        "Uber": {
+            "ml_mae": 14.36,
+            "baseline_mae": 2.96,
+            "samples": 515
+        },
+        "Pink Bike": {
+            "ml_mae": 6.8,
+            "baseline_mae": 3.2,
+            "samples": 522
+        }
+    },
+    "sample_evaluations": [
+        {
+            "provider": "Uber",
+            "rideType": "Moto",
+            "distanceKm": 11.88,
+            "durationMins": 32.1,
+            "actualFare": 200.77,
+            "baselineFare": 193.28,
+            "mlPredictedFare": 219.55,
+            "absoluteError": 18.78
+        },
+        {
+            "provider": "Uber",
+            "rideType": "Auto",
+            "distanceKm": 9.34,
+            "durationMins": 20.7,
+            "actualFare": 219.5,
+            "baselineFare": 216.25,
+            "mlPredictedFare": 216.7,
+            "absoluteError": 2.8
+        },
+        {
+            "provider": "Rapido",
+            "rideType": "Bike",
+            "distanceKm": 8.61,
+            "durationMins": 21.5,
+            "actualFare": 128.04,
+            "baselineFare": 123.79,
+            "mlPredictedFare": 137.0,
+            "absoluteError": 8.96
+        },
+        {
+            "provider": "Uber",
+            "rideType": "Go",
+            "distanceKm": 38.29,
+            "durationMins": 64.6,
+            "actualFare": 740.09,
+            "baselineFare": 736.25,
+            "mlPredictedFare": 736.61,
+            "absoluteError": 3.48
+        },
+        {
+            "provider": "Rapido",
+            "rideType": "Auto",
+            "distanceKm": 6.37,
+            "durationMins": 10.5,
+            "actualFare": 112.36,
+            "baselineFare": 109.2,
+            "mlPredictedFare": 115.8,
+            "absoluteError": 3.44
+        }
+    ]
+}
